@@ -12,6 +12,7 @@ app.use(cors());
 const productRoutes = require('./routes/productRouter')
 const categoryRoutes = require('./routes/categoryRouter')
 const souCategoryRoutes = require('./routes/souCategoryRouter')
+const TablesRoutes = require('./routes/tableRouter')
 
 
 
@@ -28,6 +29,8 @@ mongoose.connect(process.env.DATABASE, {
 app.use('/api/category', categoryRoutes)
 app.use('/api/souCategory', souCategoryRoutes)
 app.use('/api/product', productRoutes)
+app.use('/api/table', TablesRoutes)
+
 
  app.listen(3000, () => {
     logger.error('Server is connect in port : 3000');
