@@ -58,14 +58,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/styles.css">
     
-    
    
    
     <title>Dashboard Admin (produits)</title>
 </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" >Products</a>
+            <a class="navbar-brand" ><img style="width: 270PX;" src="assets/img/FastFood.png" alt="" srcset=""></a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
           
@@ -86,40 +85,38 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" >
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a> 
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-sidenav-menu-heading"></div>
+                          <!-- /////////////// -->
+                            <a class="nav-link collapsed" href="category.html"  aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                Categories
+                                <div class="sb-sidenav-collapse-arrow"></i></div>
                             </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Categories
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="category.html">Categories</a>
-                                           
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        SousCategories
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="souscategorie.html">SousCategories</a>
-                                          
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div>
+                            <a class="nav-link collapsed" href="souscategorie.html"  aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                SousCategories
+                                <div class="sb-sidenav-collapse-arrow"></i></div>
+                            </a>
+                            <a class="nav-link collapsed" href="Tables.html"  aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Tables
+                                <div class="sb-sidenav-collapse-arrow"></i></div>
+                            </a>
+                            <a class="nav-link collapsed" href="CodePromo.html"  aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                CodePromo
+                                <div class="sb-sidenav-collapse-arrow"></i></div>
+                            </a>
+                            <a class="nav-link collapsed" href="product.html" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                produits
+                                <div class="sb-sidenav-collapse-arrow"></i></div>
+                            </a>
+                            
+                            <!-- //////////////////// -->
+                        
+                           
+                               
                            
                    
                 </nav>
@@ -127,24 +124,18 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Products</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a >Dashboard</a></li>
-                            <li class="breadcrumb-item active">Des produits</li>
-                        </ol>
+                        
+                     
                         <div class="card mb-4">
-                            <div class="card-body">
-                               <!-- Button trigger modal -->
-                               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                                ajouter Des produits
-                              </button>
-                                .
-                            </div>
+                            
                         </div>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
                                 Liste des Products
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                    ajouter Des produits
+                                  </button>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -160,6 +151,7 @@
                                                     <th>description</th>
                                                     <th>price</th>
                                                     <th>category Name</th>
+                                                    <th>Souscategory Name</th>
                                                     <th>Delete</th>
                                                   </tr>
                                                 
@@ -199,17 +191,23 @@
                 </div>
                 <div class="form-control">
                     <label for="status">productcateId</label>
-                    <input type="text" id="productcateId" placeholder="Please enter the status..." autocomplete="off" required>
-                </div>
+                    <select name="pets" id="pet-selectcc23">     
+                                   </div>
                 <div class="form-control">
                     <label for="status">productImg</label>
                     <input type="file" id="productImg" placeholder="Please enter the status..." autocomplete="off" required>
                 </div>
                 <div class="form-control">
                     <label for="status">soucateId</label>
-                    <input type="text" id="soucateId" placeholder="Please enter the status..." autocomplete="off" required>
+                    <select name="pets" id="pet-selectcc">
+                        <option>choise categorie</option>
+                    </select>
                 </div>
                 <button id="update" onclick="addProduct()" >Submit Form</button>
+               
+                     
+               
+               
       </div>
     </div>
 </div>

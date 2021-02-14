@@ -61,11 +61,11 @@
     
    
    
-    <title>Dashboard Admin (Sous Categorie)</title>
+    <title>Dashboard Admin (produits)</title>
 </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" ><img style="width: 270PX;" src="assets/img/FastFood.png" alt="" srcset=""></a>
+            <a class="navbar-brand" >Products</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
           
@@ -86,38 +86,40 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading"></div>
-                          <!-- /////////////// -->
-                            <a class="nav-link collapsed" href="category.html"  aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" >
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a> 
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Categories
-                                <div class="sb-sidenav-collapse-arrow"></i></div>
+                                Pages
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <a class="nav-link collapsed" href="souscategorie.html"  aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                SousCategories
-                                <div class="sb-sidenav-collapse-arrow"></i></div>
-                            </a>
-                            <a class="nav-link collapsed" href="Tables.html"  aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Tables
-                                <div class="sb-sidenav-collapse-arrow"></i></div>
-                            </a>
-                            <a class="nav-link collapsed" href="CodePromo.html"  aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                CodePromo
-                                <div class="sb-sidenav-collapse-arrow"></i></div>
-                            </a>
-                            <a class="nav-link collapsed" href="product.html" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                produits
-                                <div class="sb-sidenav-collapse-arrow"></i></div>
-                            </a>
-                            
-                            <!-- //////////////////// -->
-                        
-                           
-                               
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Categories
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="category.html">Categories</a>
+                                           
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        SousCategories
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="souscategorie.html">SousCategories</a>
+                                          
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div>
                            
                    
                 </nav>
@@ -125,17 +127,24 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        
+                        <h1 class="mt-4">Products</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a >Dashboard</a></li>
+                            <li class="breadcrumb-item active">Des produits</li>
+                        </ol>
                         <div class="card mb-4">
-                            
+                            <div class="card-body">
+                               <!-- Button trigger modal -->
+                               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                ajouter Des produits
+                              </button>
+                                .
+                            </div>
                         </div>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                Liste des SousCategories
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                                    ajouter 
-                                  </button>
+                                Liste des Products
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -144,56 +153,41 @@
                                     <table  class="table table-bordered" id="doctors" width="100%" cellspacing="0">
                                         <thead >
                                             <tr>
-                                                <th>img</th>
-                                                <th>Name</th>
-                                                <th>Delete</th>
+                                                
+                                                <tr>
+                                                    <th >img</th>
+                                                    <th>name</th>
+                                                    <th>description</th>
+                                                    <th>price</th>
+                                                    <th>category Name</th>
+                                                    <th>Delete</th>
+                                                  </tr>
                                                 
                                             </tr>
                                         </thead>
                                        
-                                        <tbody id="tbody">
+                                        <tbody id="tbodyPrint">
                                           
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                    </div>     
+                    </div>
+                    
+                        
                 </div>
                 </main>
 
 
-  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-<form></form>
-                <input type="text" hidden id="ide" placeholder="Please enter a domain number..." autocomplete="off" required>
-            
-            <div class="form-control">
-                <label for="domain">name</label>
-                <input type="text" id="souscatgoriename" placeholder="Please enter a domain number..." autocomplete="off" required>
-            </div>
+  
 
-            <div class="form-control">
-                <label for="domain">name</label>
-                <select name="pets" id="pet-select231"><option>choise categorie</option></select>
-                
-            </div>
-
+             
           
-            <button id="add" onclick="addSousCatgorie()" >Submit Form</button>
-         
-        
-    
-      </div>
-    </div>
-</div>
-
-               
-          
-        <script src="assets/js/souscategory.js"></script>
+        <script src="assets/js/print.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     

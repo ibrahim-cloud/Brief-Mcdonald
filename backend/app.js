@@ -13,6 +13,7 @@ const productRoutes = require('./routes/productRouter')
 const categoryRoutes = require('./routes/categoryRouter')
 const souCategoryRoutes = require('./routes/souCategoryRouter')
 const TablesRoutes = require('./routes/tableRouter')
+const CodeRoutes = require('./routes/codePromoRouter')
 
 
 
@@ -30,6 +31,7 @@ app.use('/api/category', categoryRoutes)
 app.use('/api/souCategory', souCategoryRoutes)
 app.use('/api/product', productRoutes)
 app.use('/api/table', TablesRoutes)
+app.use('/api/code', CodeRoutes)
 
 
  app.listen(3000, () => {

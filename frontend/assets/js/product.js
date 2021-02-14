@@ -37,11 +37,12 @@ async function getProduct() {
             row = 
     `  
   <tr>
-    <td style="width : 87px;"><img src="http://localhost:3000/api/product/photo/${response.data.products[i]._id}" class="card-img-top" alt="..."></td>
+    <td style="width : 87px;"><img src="assets/img/${response.data.products[i].photos}" class="card-img-top" alt="..."></td>
     <td>${response.data.products[i].name}</td>
     <td>${response.data.products[i].description}</td>
    <td> ${response.data.products[i].price}</td>
    <td> ${response.data.products[i].category.name}</td>
+   <td> ${response.data.products[i].souCategory.name}</td>
   <td> <button  id="btndel"  type="button" class="btn btn-danger" onclick= "RemoveProduct('${response.data.products[i]._id}')" > Delete </button></td>
   </tr>
     `
@@ -57,27 +58,84 @@ async function getProduct() {
 }
 getProduct();
 ///// Add Product ////////
-function addProduct() {
+
+ async function addProduct() {
+    
     var name = document.getElementById('productname').value;
     var des = document.getElementById('productdes').value;
     var price = document.getElementById('productprice').value;
-    // var cateId = document.getElementById('productcateId').value;
-    var img  = document.getElementById('productImg').value;
-    // var soucateId  = document.getElementById('soucateId').value;
-    
-    params =  {products:[{    name: name,
+    var cateId = document.getElementById('pet-selectcc23').value;
+    var img  = document.getElementById('productImg').files[0].name;
+    var soucateId  = document.getElementById('pet-selectcc').value;
+    console.log(cateId);
+    params =  {    name: name,
         description: des ,
         price : price,
         category : cateId,
-        photo:img ,
-        souCategory:soucateId}]} 
-    let res = axios.post('http://localhost:3000/api/product/create', params);
-    console.log(cateId  +soucateId)
-   
+        photos:img ,
+        souCategory:soucateId} 
+    let res =  await axios.post('http://localhost:3000/api/product/create', params);
+    location.reload();
     }
 
 ///////// Delete Product ///////
-function RemoveProduct(id) {
-    axios.delete('http://localhost:3000/api/product/'+id+'');
+async  function RemoveProduct(id) {
+  await  axios.delete('http://localhost:3000/api/product/'+id+'');
     location.reload();
   }
+  ////////////////////////////
+  async function getSUcate() {
+    //////// get value cate //////
+  
+    try {
+      const response1 = await   axios.get('http://localhost:3000/api/souCategory');
+     
+     
+      var addDossier = '';
+     
+      
+      //   console.log(data[i])
+      
+       for (let i = 0; i < response1.data.length; i++) {
+        var addDossier=  `<option  value="` +response1.data[i]._id +`">` +response1.data[i].name +`</option>` 
+       
+       document.getElementById("pet-selectcc").innerHTML += addDossier;
+      }
+     
+       
+  
+      
+  }
+  catch (error) {
+    console.error(error);
+  }
+  }
+  getSUcate();
+////////////////////////////////////////////////////////////////////////////////////////
+async function getScate() {
+    //////// get value cate //////
+  
+    try {
+      const response2 = await   axios.get('http://localhost:3000/api/category');
+     
+     
+      var addDossier = '';
+     
+      
+      //   console.log(data[i])
+      
+       for (let i = 0; i < response2.data.categories.length; i++) {
+        var addDossier=  `<option id="productcateId" value="` +response2.data.categories[i]._id +`">` +response2.data.categories[i].name +`</option>` 
+       
+       document.getElementById("pet-selectcc23").innerHTML += addDossier;
+      }
+     
+       
+  
+      
+  }
+  catch (error) {
+    console.error(error);
+  }
+  }
+  getScate();

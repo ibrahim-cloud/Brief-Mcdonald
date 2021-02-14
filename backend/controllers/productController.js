@@ -5,30 +5,12 @@ const lodash = require("lodash")
 
 
 exports.createProduct = (req, res) => {
-    let form = new formidable.IncomingForm();
+
   
-    form.keepExtensions = true;
+        let product = new Product(req.body);
   
-    form.parse(req, (err, fields, files) => {
-        if(err){
-            return res.status(400).json({
-                error: "Image could nor update"
-            })
-        }
   
-        let product = new Product(fields);
-  
-        if(files.photo){
-  
-          if(files.photo.size > Math.pow(10, 6)){
-              return res.status(400).json({
-                  error: "Image should be less than 1Mo in size !"
-              })
-          }
-            product.photo.data = fs.readFileSync(files.photo.path)
-            product.photo.contentType = files.photo.type
-        }
-  
+
     
         product.save((err, product) => {
             if(err){
@@ -41,9 +23,11 @@ exports.createProduct = (req, res) => {
                 product
             })
         })
-    })
+ 
   
   }
+  
+ 
 
 
 exports.getAllProduct = (req, res, next) => {
@@ -240,50 +224,4 @@ exports.photoProduct = (req, res) => {
         return res.send(data)
     }
 }
-// search product 
-// exports.searchProduct = (req, res) => {
-//     let sortBy = req.query.sortBy ? req.query.sortBy : '_id';
-//     let order = req.query.order ? req.query.order : "asc"; // a-z not z-a il prend en consédiration l'alhabétique de les mots les produits
-//     let limit = req.body.limit ? parseInt(req.body.limit) : 100;
-//     let skip = parseInt(req.body.skip)
-//     let findArgs = {}
 
-//     console.log(req.body.filters)
-
-//     for(let key in req.body.filters){
-//         if(req.body.filters[key].length > 0){
-       
-//      if(key === "price"){
-//                 // gte - greater than price [0-10]
-//                 // lte - less than
-
-//                 findArgs[key] = {
-//                     $gte: req.body.filters[key][0],
-//                     $lte: req.body.filters[key][1]
-//                 };
-//             }else{
-//                 findArgs[key] = req.body.filters[key];
-//             }
-//         }
-//     }
-
-//     Product.find(findArgs)
-//            .select("-photo") //not show url photo in query uri
-//            .populate('sousCategory') // afficher la category de la produit dans uri
-//            .populate('sousCategory') 
-//            .sort([[sortBy, order]])
-//            .limit(limit)
-//            .skip(skip)
-//            .exec((err, products) => {
-//                if(err){
-//                    return res.status(404).json({
-//                        error: "Products not found"
-//                    })
-//                }
-//                res.json({
-//                    products
-//                })
-//            })
-
-
-// }

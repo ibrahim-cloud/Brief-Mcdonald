@@ -10,7 +10,10 @@ axios.get('http://localhost:3000/api/souCategory')
     
       console.log(data[i])
       addDossier += '<tr>';
- 
+      addDossier += '<td>';
+      addDossier += '<img style="width :  45px;" src="assets/img/A.jfif">';
+      addDossier += "</td>";
+      
       addDossier += '<td>';
       addDossier += "<p style='font-size:15px'>  " +data[i].name +"</p>";
       addDossier += "</td>";
@@ -25,16 +28,47 @@ axios.get('http://localhost:3000/api/souCategory')
   });
 
 /////// Add SousCategories ////////
-  function addSousCatgorie() {
+ async function addSousCatgorie() {
     var name = document.getElementById('souscatgoriename').value;
-    params = {name: name}
-    let res = axios.post('http://localhost:3000/api/souCategory/create', params);
+    var cateId = document.getElementById('pet-select231').value;
+    params = {name: name ,category : cateId   } 
+    let res = await axios.post('http://localhost:3000/api/souCategory/create', params);
     location.reload();
     }
     
 
 ///////// Delete SousCategories ///////
-function RemoveSousCategorie(id) {
-      axios.delete('http://localhost:3000/api/souCategory/'+id+'');
+async function RemoveSousCategorie(id) {
+     await axios.delete('http://localhost:3000/api/souCategory/'+id+'');
       location.reload();
     }
+    async function getScate() {
+      //////// get value cate //////
+    
+      try {
+        const response2 = await   axios.get('http://localhost:3000/api/category');
+       
+       
+        var addDossier = '';
+       
+        
+          
+        
+         for (let i = 0; i < response2.data.categories.length; i++) {console.log(response2.data.categories[i].name)
+          var addDossier=  `<option id="productcateId" value="` +response2.data.categories[i]._id +`">` +response2.data.categories[i].name +`</option>`
+           
+         
+         document.getElementById("pet-select231").innerHTML += addDossier;
+        }
+       
+         
+    
+        
+    }
+    catch (error) {
+      console.error(error);
+    }
+    }
+    getScate();
+
+    

@@ -9,6 +9,9 @@ async function getcate() {
             row = 
     `  
   <tr>
+ <td>
+ <img style="width :  45px;" src="assets/img/A.jfif">
+ </td>
     
     <td>${response.data.categories[i].name}</td>
     
@@ -29,16 +32,16 @@ async function getcate() {
 getcate();
 
 /////// Add SousCategories ////////
-function addCate() {
+async function addCate() {
     var name = document.getElementById('catename').value;
-    var catesouscate = document.getElementById('catesouscate').value;
-    params =   {name: name , 
-        souCategory: catesouscate  }
-    let res = axios.post('http://localhost:3000/api/category/create', params);
+   
+    params =   {name: name}
+    let res =  await axios.post('http://localhost:3000/api/category/create', params);
     location.reload();
     }
 ///////// Delete SousCategories ///////
-function RemoveCategorie(id) {
-    axios.delete('http://localhost:3000/api/category/'+id+'');
+ async function RemoveCategorie(id) {
+  await  axios.delete('http://localhost:3000/api/category/'+id+'');
     location.reload();
   }
+  

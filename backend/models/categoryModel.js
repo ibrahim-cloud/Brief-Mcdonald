@@ -7,11 +7,6 @@ const categorySchema = new mongoose.Schema({
         type: String,
         require : true,
         
-    },
-    souCategory: {
-        type: ObjectId,
-        ref: 'SouCategory',
-        require: true
     }
 }, {timestamps: true});
 

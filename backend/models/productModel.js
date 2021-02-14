@@ -22,9 +22,8 @@ const productSchema = new mongoose.Schema({
     quantity: {
         type: Number
     },
-    photo: {
-        data: Buffer,
-        contentType: String
+    photos: {
+        type: String
     },
     souCategory: {
         type: ObjectId,
@@ -41,3 +40,5 @@ const productSchema = new mongoose.Schema({
 
 
 module.exports = mongoose.model("Product", productSchema)
+////////////////
+
